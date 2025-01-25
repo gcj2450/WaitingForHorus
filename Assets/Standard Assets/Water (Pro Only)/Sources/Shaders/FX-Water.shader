@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "FX/Water" { 
 Properties {
 	_DesatuScale ("Desat scale", Range (0.0,1.0)) = 0.75
@@ -43,7 +45,7 @@ struct v2f {
 v2f vert(appdata v)
 {
 	v2f o;
-	o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
+	o.pos = UnityObjectToClipPos (v.vertex);
 	o.viewDir = normalize(ObjSpaceViewDir(v.vertex));
 	o.ref = ComputeScreenPos(o.pos);
 	o.normal = v.normal;

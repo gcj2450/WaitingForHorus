@@ -545,8 +545,8 @@ public class PlayerScript : uLink.MonoBehaviour
             {
                 lockMouse = true;
             }
-            Cursor.lockState = ( lockMouse ? CursorLockMode.Locked : CursorLockMode.None );
-            Cursor.visible = !lockMouse;
+            //Cursor.lockState = ( lockMouse ? CursorLockMode.Locked : CursorLockMode.None );
+            //Cursor.visible = !lockMouse;
             /*else
             {
                 Cursor.lockState = CursorLockMode.None;

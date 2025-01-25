@@ -17,3 +17,9 @@ UnityVS*
 *.unityproj
 *.userprefs
 *.sln
+/Build
+/.vs
+/Logs
+/.vsconfig
+/UserSettings
+/obj

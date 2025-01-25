@@ -62,13 +62,7 @@ public class WeaponIndicatorScript : MonoBehaviour
 
     public void Start()
     {
-        mat = new Material("Shader \"Lines/Colored Blended\" {" +
-                           "SubShader { Pass { " +
-                           "    Blend SrcAlpha OneMinusSrcAlpha " +
-                           "    ZWrite Off Cull Off Fog { Mode Off } " +
-                           "    BindChannels {" +
-                           "      Bind \"vertex\", vertex Bind \"color\", color }" +
-                           "} } }");
+        mat = new Material(Shader.Find("Lines/WeaponIndicator"));
         mat.hideFlags = HideFlags.HideAndDontSave;
         mat.shader.hideFlags = HideFlags.HideAndDontSave;
 

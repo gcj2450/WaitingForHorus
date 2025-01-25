@@ -10,7 +10,7 @@ namespace Network.MasterServer
 {
     public class ExternalAddressFinder : IDisposable
     {
-        public string URI = "";
+        public string URI = "http://localhost/";
         private WebClient WebClient;
         private JsonReader Reader;
 
@@ -79,7 +79,7 @@ namespace Network.MasterServer
     // server
     public class ExternalServerList : IDisposable
     {
-        public string URI = "";
+        public string URI = "http://localhost/";
         public MasterServerListRaw MasterListRaw { get; private set; }
 
         public delegate void MasterServerListChangedHandler( );
@@ -130,6 +130,7 @@ namespace Network.MasterServer
             }
             catch( Exception e )
             {
+                Debug.Log($"AAA {e.ToString()}");
                 OnMasterServerListFetchError( e.ToString() );
             }
         }

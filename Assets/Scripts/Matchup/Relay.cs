@@ -294,7 +294,7 @@ public class Relay : uLink.MonoBehaviour
 	private void TryNewMasterServer() 
 	{
 		// set serverlist and addressfinder to the new master server
-		string masterServer = "http://" + PlayerPrefs.GetString ("masterserver", "master.server.example");
+		string masterServer = "http://" + PlayerPrefs.GetString ("masterserver", "localhost");
 		// update things that rely on master server
 		AddressFinder.URI = masterServer + "/my_address";
 		ExternalServerList.URI = masterServer + "/servers/horus";
@@ -365,7 +365,7 @@ public class Relay : uLink.MonoBehaviour
 	{
 		GUILayout.BeginHorizontal();
 		{
-			string currentServerName = PlayerPrefs.GetString ("masterserver", "master.server.com");
+			string currentServerName = PlayerPrefs.GetString ("masterserver", "localhost");
 			// also, doesn't this allocate new stuff on heap? idk...
 			GUIStyle rowStyle = new GUIStyle( BaseSkin.textField ) { fixedWidth = 312 }; // yay for magic numbers
 			string newMasterServerName = RemoveSpecialCharacters(GUILayout.TextField(currentServerName, rowStyle));
@@ -399,7 +399,7 @@ public class Relay : uLink.MonoBehaviour
                 Connect(RunMode.Server);
             }
 			GUILayout.Box( "", BoxSpacer );
-            if (DevelopmentMode)
+            //if (DevelopmentMode)
             {
                 if(GUILayout.Button("LOCAL"))
                 {
@@ -407,7 +407,7 @@ public class Relay : uLink.MonoBehaviour
                     Connect(RunMode.Client);
                 }
             }
-            else
+            //else
             {
                 if(GUILayout.Button("RANDOM"))
                 {
@@ -521,7 +521,7 @@ public class Relay : uLink.MonoBehaviour
 
     private void ReceiveMasterListFetchError(string message)
     {
-        MessageLog.AddMessage("Failed to get server list: " + message);
+        Debug.Log("Failed to get server list: " + message);
     }
 }
 
